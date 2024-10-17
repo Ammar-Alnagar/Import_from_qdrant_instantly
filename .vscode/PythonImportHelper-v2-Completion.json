@@ -1,0 +1,146 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "tkinter",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "InstalledAppFlow",
+        "importPath": "google_auth_oauthlib.flow",
+        "description": "google_auth_oauthlib.flow",
+        "isExtraImport": true,
+        "detail": "google_auth_oauthlib.flow",
+        "documentation": {}
+    },
+    {
+        "label": "build",
+        "importPath": "googleapiclient.discovery",
+        "description": "googleapiclient.discovery",
+        "isExtraImport": true,
+        "detail": "googleapiclient.discovery",
+        "documentation": {}
+    },
+    {
+        "label": "QdrantClient",
+        "importPath": "qdrant_client",
+        "description": "qdrant_client",
+        "isExtraImport": true,
+        "detail": "qdrant_client",
+        "documentation": {}
+    },
+    {
+        "label": "Distance",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "VectorParams",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "PointStruct",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "google.auth.transport.requests",
+        "description": "google.auth.transport.requests",
+        "isExtraImport": true,
+        "detail": "google.auth.transport.requests",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "DriveToQdrantApp",
+        "kind": 6,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "class DriveToQdrantApp:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Google Drive to Qdrant Sync\")\n        self.window.geometry(\"400x200\")\n        # Initialize Qdrant client with API key\n        self.qdrant = self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "SCOPES",
+        "kind": 5,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']\nload_dotenv()\n# OAuth configuration (replace with actual values)\nCLIENT_CONFIG = {\n            \"installed\": {\n                \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n                \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n                \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n                \"token_uri\": \"https://oauth2.googleapis.com/token\",\n                \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",",
+        "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "CLIENT_CONFIG",
+        "kind": 5,
+        "importPath": "Main",
+        "description": "Main",
+        "peekOfCode": "CLIENT_CONFIG = {\n            \"installed\": {\n                \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n                \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n                \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n                \"token_uri\": \"https://oauth2.googleapis.com/token\",\n                \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n                \"client_secret\": os.getenv('GOOGLE_CLIENT_SECRET'),\n                \"redirect_uris\": [\"http://localhost:8080/\"]\n            }",
+        "detail": "Main",
+        "documentation": {}
+    }
+]

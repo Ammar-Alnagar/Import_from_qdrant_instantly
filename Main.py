@@ -2,72 +2,29 @@ import os
 import pickle
 import tkinter as tk
 from tkinter import messagebox
-import webbrowser
-import json
-from http.server import HTTPServer, BaseHTTPRequestHandler
-import urllib.parse
-from google_auth_oauthlib.flow import Flow
+from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams, PointStruct
-import threading
-import secrets
-import base64
-
-# OAuth configuration
-GOOGLE_OAUTH_CONFIG = {
-    "web": {
-        "client_id": "YOUR_CLIENT_ID",
-        "project_id": "YOUR_PROJECT_ID",
-        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-        "token_uri": "https://oauth2.googleapis.com/token",
-        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_secret": "YOUR_CLIENT_SECRET",
-        "redirect_uris": ["http://localhost:8080"]
-    }
-}
+from google.auth.transport.requests import Request
+import numpy as np
+import uuid
+from dotenv import load_dotenv
 
 SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
-
-class OAuthCallbackHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        try:
-            # Parse the callback URL
-            parsed = urllib.parse.urlparse(self.path)
-            query_params = urllib.parse.parse_qs(parsed.query)
-            
-            # Store the auth code
-            if 'code' in query_params:
-                self.server.auth_code = query_params['code'][0]
-                self.server.state = query_params.get('state', [None])[0]
-                
-                # Send success response
-                self.send_response(200)
-                self.send_header('Content-type', 'text/html')
-                self.end_headers()
-                success_html = """
-                <html>
-                    <body style="text-align: center; padding-top: 50px;">
-                        <h2>Authentication Successful!</h2>
-                        <p>You can close this window and return to the application.</p>
-                        <script>setTimeout(function() { window.close(); }, 3000);</script>
-                    </body>
-                </html>
-                """
-                self.wfile.write(success_html.encode())
-            else:
-                raise Exception("No authorization code received")
-                
-            # Stop the server
-            threading.Thread(target=self.server.shutdown).start()
-            
-        except Exception as e:
-            self.send_error(400, str(e))
-            threading.Thread(target=self.server.shutdown).start()
-
-    def log_message(self, format, *args):
-        # Suppress logging
-        pass
+load_dotenv()
+# OAuth configuration (replace with actual values)
+CLIENT_CONFIG = {
+            "installed": {
+                "client_id": os.getenv('GOOGLE_CLIENT_ID'),
+                "project_id": os.getenv('GOOGLE_PROJECT_ID'),
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "token_uri": "https://oauth2.googleapis.com/token",
+                "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                "client_secret": os.getenv('GOOGLE_CLIENT_SECRET'),
+                "redirect_uris": ["http://localhost:8080/"]
+            }
+        }
 
 class DriveToQdrantApp:
     def __init__(self):
@@ -75,8 +32,12 @@ class DriveToQdrantApp:
         self.window.title("Google Drive to Qdrant Sync")
         self.window.geometry("400x200")
         
-        # Initialize Qdrant client
-        self.qdrant = QdrantClient(host="localhost", port=6333)
+        # Initialize Qdrant client with API key
+        self.qdrant = self.qdrant = QdrantClient(
+            url=os.getenv('QDRANT_URL'),
+            api_key=os.getenv('QDRANT_API_KEY')
+        )
+
         
         # Create collection if it doesn't exist
         try:
@@ -84,12 +45,12 @@ class DriveToQdrantApp:
                 collection_name="drive_files",
                 vectors_config=VectorParams(size=128, distance=Distance.COSINE)
             )
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"Collection creation error: {e}")
         
         # Create UI
         self.create_ui()
-        
+
     def create_ui(self):
         self.sync_button = tk.Button(
             self.window,
@@ -99,136 +60,76 @@ class DriveToQdrantApp:
             width=20
         )
         self.sync_button.pack(pady=20)
+
+    def google_auth(self):
+        creds = None
+        token_file = 'token.pickle'
         
-        self.status_label = tk.Label(
-            self.window,
-            text="Click button to sign in with Google",
-            wraplength=350
-        )
-        self.status_label.pack(pady=10)
-    
-    def get_google_credentials(self):
-        # Generate a random state value for security
-        state = base64.urlsafe_b64encode(secrets.token_bytes(32)).decode('utf-8')
-        
-        # Create a Flow instance
-        flow = Flow.from_client_config(
-            GOOGLE_OAUTH_CONFIG,
-            scopes=SCOPES,
-            redirect_uri="http://localhost:8080"
-        )
-        
-        # Generate authorization URL
-        auth_url, _ = flow.authorization_url(
-            access_type='offline',
-            include_granted_scopes='true',
-            prompt='select_account',  # This forces the account selection screen
-            state=state
-        )
-        
-        # Start local server to receive the OAuth callback
-        server = HTTPServer(('localhost', 8080), OAuthCallbackHandler)
-        server.auth_code = None
-        server.state = None
-        
-        # Open browser for authentication
-        webbrowser.open(auth_url)
-        
-        # Update status
-        self.status_label.config(text="Waiting for Google authentication...")
-        
-        # Wait for the callback
-        server.serve_forever()
-        
-        # Verify state and get auth code
-        if server.state != state:
-            raise Exception("State mismatch. Possible security issue.")
-        
-        if not server.auth_code:
-            raise Exception("Failed to get authorization code")
-        
-        # Exchange auth code for credentials
-        flow.fetch_token(code=server.auth_code)
-        
-        # Save credentials
-        creds = flow.credentials
-        with open('token.pickle', 'wb') as token:
-            pickle.dump(creds, token)
-        
+        # Load credentials from 'token.pickle' if they exist
+        if os.path.exists(token_file):
+            with open(token_file, 'rb') as token:
+                creds = pickle.load(token)
+
+        # If credentials are not valid, refresh them or prompt the user to log in
+        if not creds or not creds.valid:
+            if creds and creds.expired and creds.refresh_token:
+                creds.refresh(Request())
+            else:
+                flow = InstalledAppFlow.from_client_config(CLIENT_CONFIG, SCOPES)
+                # Use a fixed port like 8080
+                creds = flow.run_local_server(port=8080)  # Fixed port to maintain the same URI
+
+            # Save the credentials to 'token.pickle' for future use
+            with open(token_file, 'wb') as token:
+                pickle.dump(creds, token)
+
         return creds
 
-    def fetch_drive_files(self, service):
-        results = []
-        page_token = None
-        
-        while True:
-            try:
-                response = service.files().list(
-                    pageSize=1000,
-                    fields="nextPageToken, files(id, name, mimeType, modifiedTime, size)",
-                    pageToken=page_token
-                ).execute()
-                
-                files = response.get('files', [])
-                results.extend(files)
-                
-                page_token = response.get('nextPageToken')
-                if not page_token:
-                    break
-                    
-            except Exception as e:
-                self.status_label.config(text=f"Error fetching files: {str(e)}")
-                return []
-                
-        return results
-    
-    def store_in_qdrant(self, files):
+
+    def fetch_drive_files(self):
+        creds = self.google_auth()
+        service = build('drive', 'v3', credentials=creds)
+        results = service.files().list(
+            pageSize=10, fields="files(id, name)").execute()
+        items = results.get('files', [])
+        if not items:
+            messagebox.showinfo("Google Drive", "No files found.")
+            return []
+        else:
+            return items
+
+    def generate_vector(self, file_name):
+        np.random.seed(hash(file_name) % (2**32))
+        return np.random.random(128).tolist()
+
+    def insert_into_qdrant(self, files):
+        points = []
         for file in files:
-            vector = [0] * 128  # Placeholder vector
-            
-            try:
-                self.qdrant.upsert(
-                    collection_name="drive_files",
-                    points=[PointStruct(
-                        id=hash(file['id']),
-                        vector=vector,
-                        payload={
-                            "name": file['name'],
-                            "mime_type": file['mimeType'],
-                            "modified_time": file['modifiedTime'],
-                            "size": file.get('size', '0'),
-                            "drive_id": file['id']
-                        }
-                    )]
-                )
-            except Exception as e:
-                print(f"Error storing file {file['name']}: {str(e)}")
-    
+            vector = self.generate_vector(file['name'])
+            point = PointStruct(
+                id=str(uuid.uuid4()),  # Generate a UUID for the point ID
+                vector=vector,
+                payload={"file_name": file['name']}
+            )
+            points.append(point)
+        
+        try:
+            self.qdrant.upsert(
+                collection_name="drive_files",
+                points=points
+            )
+            messagebox.showinfo("Qdrant Sync", "Files synced to Qdrant successfully!")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to sync to Qdrant: {str(e)}")
+
     def handle_sync(self):
         try:
-            self.status_label.config(text="Starting Google Sign-In...")
-            creds = self.get_google_credentials()
-            
-            service = build('drive', 'v3', credentials=creds)
-            
-            self.status_label.config(text="Fetching files from Google Drive...")
-            files = self.fetch_drive_files(service)
-            
+            files = self.fetch_drive_files()
             if files:
-                self.status_label.config(text=f"Storing {len(files)} files in Qdrant...")
-                self.store_in_qdrant(files)
-                self.status_label.config(text="Sync completed successfully!")
-                self.sync_button.config(text="Sync Again")
-            else:
-                self.status_label.config(text="No files found in Google Drive")
-                
+                self.insert_into_qdrant(files)
         except Exception as e:
-            messagebox.showerror("Error", str(e))
-            self.status_label.config(text="Sync failed. See error message.")
-    
-    def run(self):
-        self.window.mainloop()
+            messagebox.showerror("Error", f"An error occurred: {str(e)}")
 
 if __name__ == "__main__":
     app = DriveToQdrantApp()
-    app.run()
+    app.window.mainloop()
