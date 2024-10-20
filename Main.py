@@ -11,6 +11,9 @@ import numpy as np
 import uuid
 from dotenv import load_dotenv
 
+
+name = "drive_to_qdrant"
+
 SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
 load_dotenv()
 # OAuth configuration (replace with actual values)
@@ -42,7 +45,7 @@ class DriveToQdrantApp:
         # Create collection if it doesn't exist
         try:
             self.qdrant.create_collection(
-                collection_name="drive_files",
+                collection_name="drive_to_qdrant",
                 vectors_config=VectorParams(size=128, distance=Distance.COSINE)
             )
         except Exception as e:
@@ -115,7 +118,7 @@ class DriveToQdrantApp:
         
         try:
             self.qdrant.upsert(
-                collection_name="drive_files",
+                collection_name="drive_to_qdrant",
                 points=points
             )
             messagebox.showinfo("Qdrant Sync", "Files synced to Qdrant successfully!")
