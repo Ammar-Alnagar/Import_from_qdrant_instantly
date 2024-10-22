@@ -35,6 +35,14 @@
         "documentation": {}
     },
     {
+        "label": "ttk",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
         "label": "InstalledAppFlow",
         "importPath": "google_auth_oauthlib.flow",
         "description": "google_auth_oauthlib.flow",
@@ -121,7 +129,7 @@
         "kind": 6,
         "importPath": "Main",
         "description": "Main",
-        "peekOfCode": "class DriveToQdrantApp:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Google Drive to Qdrant Sync\")\n        self.window.geometry(\"400x200\")\n        # Initialize Qdrant client with API key\n        self.qdrant = self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )",
+        "peekOfCode": "class DriveToQdrantApp:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Google Drive to Qdrant Sync\")\n        self.window.geometry(\"400x300\")\n        # Initialize Qdrant client with API key\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )",
         "detail": "Main",
         "documentation": {}
     },
