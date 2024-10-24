@@ -43,6 +43,38 @@
         "documentation": {}
     },
     {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "InstalledAppFlow",
+        "importPath": "google_auth_oauthlib.flow",
+        "description": "google_auth_oauthlib.flow",
+        "isExtraImport": true,
+        "detail": "google_auth_oauthlib.flow",
+        "documentation": {}
+    },
+    {
+        "label": "InstalledAppFlow",
+        "importPath": "google_auth_oauthlib.flow",
+        "description": "google_auth_oauthlib.flow",
+        "isExtraImport": true,
+        "detail": "google_auth_oauthlib.flow",
+        "documentation": {}
+    },
+    {
+        "label": "InstalledAppFlow",
+        "importPath": "google_auth_oauthlib.flow",
+        "description": "google_auth_oauthlib.flow",
+        "isExtraImport": true,
+        "detail": "google_auth_oauthlib.flow",
+        "documentation": {}
+    },
+    {
         "label": "InstalledAppFlow",
         "importPath": "google_auth_oauthlib.flow",
         "description": "google_auth_oauthlib.flow",
@@ -56,6 +88,62 @@
         "description": "googleapiclient.discovery",
         "isExtraImport": true,
         "detail": "googleapiclient.discovery",
+        "documentation": {}
+    },
+    {
+        "label": "build",
+        "importPath": "googleapiclient.discovery",
+        "description": "googleapiclient.discovery",
+        "isExtraImport": true,
+        "detail": "googleapiclient.discovery",
+        "documentation": {}
+    },
+    {
+        "label": "build",
+        "importPath": "googleapiclient.discovery",
+        "description": "googleapiclient.discovery",
+        "isExtraImport": true,
+        "detail": "googleapiclient.discovery",
+        "documentation": {}
+    },
+    {
+        "label": "build",
+        "importPath": "googleapiclient.discovery",
+        "description": "googleapiclient.discovery",
+        "isExtraImport": true,
+        "detail": "googleapiclient.discovery",
+        "documentation": {}
+    },
+    {
+        "label": "QdrantClient",
+        "importPath": "qdrant_client",
+        "description": "qdrant_client",
+        "isExtraImport": true,
+        "detail": "qdrant_client",
+        "documentation": {}
+    },
+    {
+        "label": "QdrantClient",
+        "importPath": "qdrant_client",
+        "description": "qdrant_client",
+        "isExtraImport": true,
+        "detail": "qdrant_client",
+        "documentation": {}
+    },
+    {
+        "label": "QdrantClient",
+        "importPath": "qdrant_client",
+        "description": "qdrant_client",
+        "isExtraImport": true,
+        "detail": "qdrant_client",
+        "documentation": {}
+    },
+    {
+        "label": "QdrantClient",
+        "importPath": "qdrant_client",
+        "description": "qdrant_client",
+        "isExtraImport": true,
+        "detail": "qdrant_client",
         "documentation": {}
     },
     {
@@ -88,6 +176,102 @@
         "description": "qdrant_client.http.models",
         "isExtraImport": true,
         "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "Distance",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "VectorParams",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "PointStruct",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "Distance",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "VectorParams",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "PointStruct",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "Distance",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "VectorParams",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "PointStruct",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "google.auth.transport.requests",
+        "description": "google.auth.transport.requests",
+        "isExtraImport": true,
+        "detail": "google.auth.transport.requests",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "google.auth.transport.requests",
+        "description": "google.auth.transport.requests",
+        "isExtraImport": true,
+        "detail": "google.auth.transport.requests",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "google.auth.transport.requests",
+        "description": "google.auth.transport.requests",
+        "isExtraImport": true,
+        "detail": "google.auth.transport.requests",
         "documentation": {}
     },
     {
@@ -125,6 +309,38 @@
         "documentation": {}
     },
     {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -150,11 +366,192 @@
         "documentation": {}
     },
     {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "imaplib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "imaplib",
+        "description": "imaplib",
+        "detail": "imaplib",
+        "documentation": {}
+    },
+    {
+        "label": "email",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "email",
+        "description": "email",
+        "detail": "email",
+        "documentation": {}
+    },
+    {
+        "label": "decode_header",
+        "importPath": "email.header",
+        "description": "email.header",
+        "isExtraImport": true,
+        "detail": "email.header",
+        "documentation": {}
+    },
+    {
+        "label": "cohere",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cohere",
+        "description": "cohere",
+        "detail": "cohere",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "Mangum",
+        "importPath": "mangum",
+        "description": "mangum",
+        "isExtraImport": true,
+        "detail": "mangum",
+        "documentation": {}
+    },
+    {
         "label": "DriveToQdrantApp",
         "kind": 6,
         "importPath": "Main",
         "description": "Main",
-        "peekOfCode": "class DriveToQdrantApp:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Google Drive to Qdrant Sync\")\n        self.window.geometry(\"400x350\")  # Made window slightly taller for time display\n        # Initialize Qdrant client with API key\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )",
+        "peekOfCode": "class DriveToQdrantApp:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Welcome to AI Brain\")\n        self.window.geometry(\"400x350\")  # Made window slightly taller for time display\n        # Initialize Qdrant client with API key\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )",
         "detail": "Main",
         "documentation": {}
     },
@@ -163,7 +560,7 @@
         "kind": 5,
         "importPath": "Main",
         "description": "Main",
-        "peekOfCode": "SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']\nload_dotenv()\n# OAuth configuration (replace with actual values)\nCLIENT_CONFIG = {\n            \"installed\": {\n                \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n                \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n                \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n                \"token_uri\": \"https://oauth2.googleapis.com/token\",\n                \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",",
+        "peekOfCode": "SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']\nload_dotenv()\n# OAuth configuration (replace with actual values)\nCLIENT_CONFIG = {\n            \"web\": {\n                \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n                \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n                \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n                \"token_uri\": \"https://oauth2.googleapis.com/token\",\n                \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",",
         "detail": "Main",
         "documentation": {}
     },
@@ -172,8 +569,251 @@
         "kind": 5,
         "importPath": "Main",
         "description": "Main",
-        "peekOfCode": "CLIENT_CONFIG = {\n            \"installed\": {\n                \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n                \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n                \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n                \"token_uri\": \"https://oauth2.googleapis.com/token\",\n                \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n                \"client_secret\": os.getenv('GOOGLE_CLIENT_SECRET'),\n                \"redirect_uris\": [\"http://localhost:8080/\"]\n            }",
+        "peekOfCode": "CLIENT_CONFIG = {\n            \"web\": {\n                \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n                \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n                \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n                \"token_uri\": \"https://oauth2.googleapis.com/token\",\n                \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n                \"client_secret\": os.getenv('GOOGLE_CLIENT_SECRET'),\n                \"redirect_uris\": [\"http://localhost:8080/\"]\n            }",
         "detail": "Main",
+        "documentation": {}
+    },
+    {
+        "label": "get_emails",
+        "kind": 2,
+        "importPath": "Emailimport",
+        "description": "Emailimport",
+        "peekOfCode": "def get_emails(server, email_user, email_pass, label=\"INBOX\", batch_size=10000):\n    try:\n        mail = imaplib.IMAP4_SSL(server)\n        mail.login(email_user, email_pass)\n        mail.select(label)\n        # Fetch email IDs\n        result, data = mail.search(None, 'ALL')\n        email_ids = data[0].split()\n        # Fetch emails in batches\n        for i in range(0, len(email_ids), batch_size):",
+        "detail": "Emailimport",
+        "documentation": {}
+    },
+    {
+        "label": "process_emails",
+        "kind": 2,
+        "importPath": "Emailimport",
+        "description": "Emailimport",
+        "peekOfCode": "def process_emails(emails):\n    vectors = []\n    for msg in emails:\n        subject = decode_header(msg[\"subject\"])[0][0]\n        if isinstance(subject, bytes):\n            subject = subject.decode()\n        # Get email body\n        body = get_email_body(msg)\n        email_text = f\"Subject: {subject}\\nBody: {body}\"\n        # Vectorize using Cohere",
+        "detail": "Emailimport",
+        "documentation": {}
+    },
+    {
+        "label": "get_email_body",
+        "kind": 2,
+        "importPath": "Emailimport",
+        "description": "Emailimport",
+        "peekOfCode": "def get_email_body(msg):\n    if msg.is_multipart():\n        for part in msg.walk():\n            if part.get_content_type() == \"text/plain\":\n                return part.get_payload(decode=True).decode()\n    else:\n        return msg.get_payload(decode=True).decode()\n# Step 3: Store in Qdrant\ndef store_in_qdrant(vectors, client, batch_size=10000):\n    collection_name = \"emails\"",
+        "detail": "Emailimport",
+        "documentation": {}
+    },
+    {
+        "label": "store_in_qdrant",
+        "kind": 2,
+        "importPath": "Emailimport",
+        "description": "Emailimport",
+        "peekOfCode": "def store_in_qdrant(vectors, client, batch_size=10000):\n    collection_name = \"emails\"\n    for i in range(0, len(vectors), batch_size):\n        batch_vectors = vectors[i:i + batch_size]\n        client.insert(\n            collection_name=collection_name,\n            vectors=batch_vectors,\n            payload=[{\"email_id\": i} for i in range(len(batch_vectors))]\n        )\n# Mapping of email providers to their IMAP servers",
+        "detail": "Emailimport",
+        "documentation": {}
+    },
+    {
+        "label": "start_processing",
+        "kind": 2,
+        "importPath": "Emailimport",
+        "description": "Emailimport",
+        "peekOfCode": "def start_processing(email_user, email_pass, selected_server):\n    try:\n        # Qdrant client setup\n        client = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        server = EMAIL_SERVERS[selected_server]  # Get the IMAP server based on user selection\n        batch_size = 20000  # Adjust based on your needs\n        # Process the emails in batches",
+        "detail": "Emailimport",
+        "documentation": {}
+    },
+    {
+        "label": "create_gui",
+        "kind": 2,
+        "importPath": "Emailimport",
+        "description": "Emailimport",
+        "peekOfCode": "def create_gui():\n    def on_submit():\n        email_user = email_entry.get()\n        email_pass = password_entry.get()\n        selected_server = server_var.get()\n        if not email_user or not email_pass or not selected_server:\n            messagebox.showwarning(\"Input Error\", \"Please fill in all fields.\")\n        else:\n            start_processing(email_user, email_pass, selected_server)\n    # Create window",
+        "detail": "Emailimport",
+        "documentation": {}
+    },
+    {
+        "label": "co",
+        "kind": 5,
+        "importPath": "Emailimport",
+        "description": "Emailimport",
+        "peekOfCode": "co = cohere.Client(os.getenv('COHERE_API_KEY'))\n# Step 1: Connect to email via IMAP\ndef get_emails(server, email_user, email_pass, label=\"INBOX\", batch_size=10000):\n    try:\n        mail = imaplib.IMAP4_SSL(server)\n        mail.login(email_user, email_pass)\n        mail.select(label)\n        # Fetch email IDs\n        result, data = mail.search(None, 'ALL')\n        email_ids = data[0].split()",
+        "detail": "Emailimport",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_SERVERS",
+        "kind": 5,
+        "importPath": "Emailimport",
+        "description": "Emailimport",
+        "peekOfCode": "EMAIL_SERVERS = {\n    \"Gmail\": \"imap.gmail.com\",\n    \"Outlook\": \"imap-mail.outlook.com\",\n    \"Yahoo\": \"imap.mail.yahoo.com\",\n    \"iCloud\": \"imap.mail.me.com\"\n}\n# Example Usage:\ndef start_processing(email_user, email_pass, selected_server):\n    try:\n        # Qdrant client setup",
+        "detail": "Emailimport",
+        "documentation": {}
+    },
+    {
+        "label": "DriveToQdrantApp",
+        "kind": 6,
+        "importPath": "nogui",
+        "description": "nogui",
+        "peekOfCode": "class DriveToQdrantApp:\n    def __init__(self):\n        # Initialize Qdrant client with API key\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        # Timer variables\n        self.operation_times = {}\n    def format_time_delta(self, seconds):",
+        "detail": "nogui",
+        "documentation": {}
+    },
+    {
+        "label": "SCOPES",
+        "kind": 5,
+        "importPath": "nogui",
+        "description": "nogui",
+        "peekOfCode": "SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']\nload_dotenv()\n# OAuth configuration (replace with actual values)\nCLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n        \"token_uri\": \"https://oauth2.googleapis.com/token\",\n        \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",",
+        "detail": "nogui",
+        "documentation": {}
+    },
+    {
+        "label": "CLIENT_CONFIG",
+        "kind": 5,
+        "importPath": "nogui",
+        "description": "nogui",
+        "peekOfCode": "CLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n        \"token_uri\": \"https://oauth2.googleapis.com/token\",\n        \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n        \"client_secret\": os.getenv('GOOGLE_CLIENT_SECRET'),\n        \"redirect_uris\": [\"http://localhost:8080/\"]\n    }",
+        "detail": "nogui",
+        "documentation": {}
+    },
+    {
+        "label": "COLLECTION_NAME",
+        "kind": 5,
+        "importPath": "nogui",
+        "description": "nogui",
+        "peekOfCode": "COLLECTION_NAME = \"my_default_collection\"\nclass DriveToQdrantApp:\n    def __init__(self):\n        # Initialize Qdrant client with API key\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        # Timer variables\n        self.operation_times = {}",
+        "detail": "nogui",
+        "documentation": {}
+    },
+    {
+        "label": "SyncRequest",
+        "kind": 6,
+        "importPath": "fast",
+        "description": "fast",
+        "peekOfCode": "class SyncRequest(BaseModel):\n    user_name: str\nclass DriveToQdrantApp:\n    def __init__(self):\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        self.operation_times = {}\n    def sanitize_collection_name(self, name: str) -> str:",
+        "detail": "fast",
+        "documentation": {}
+    },
+    {
+        "label": "DriveToQdrantApp",
+        "kind": 6,
+        "importPath": "fast",
+        "description": "fast",
+        "peekOfCode": "class DriveToQdrantApp:\n    def __init__(self):\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        self.operation_times = {}\n    def sanitize_collection_name(self, name: str) -> str:\n        \"\"\"Sanitize the collection name to meet Qdrant requirements\"\"\"\n        # Remove special characters and spaces, replace with underscore",
+        "detail": "fast",
+        "documentation": {}
+    },
+    {
+        "label": "SCOPES",
+        "kind": 5,
+        "importPath": "fast",
+        "description": "fast",
+        "peekOfCode": "SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']\nload_dotenv()\n# OAuth configuration\nCLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n        \"token_uri\": \"https://oauth2.googleapis.com/token\",\n        \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",",
+        "detail": "fast",
+        "documentation": {}
+    },
+    {
+        "label": "CLIENT_CONFIG",
+        "kind": 5,
+        "importPath": "fast",
+        "description": "fast",
+        "peekOfCode": "CLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n        \"token_uri\": \"https://oauth2.googleapis.com/token\",\n        \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n        \"client_secret\": os.getenv('GOOGLE_CLIENT_SECRET'),\n        \"redirect_uris\": [\"http://localhost:8080/\"]\n    }",
+        "detail": "fast",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "fast",
+        "description": "fast",
+        "peekOfCode": "app = FastAPI(title=\"Drive to Qdrant API\")\nclass SyncRequest(BaseModel):\n    user_name: str\nclass DriveToQdrantApp:\n    def __init__(self):\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        self.operation_times = {}",
+        "detail": "fast",
+        "documentation": {}
+    },
+    {
+        "label": "drive_app",
+        "kind": 5,
+        "importPath": "fast",
+        "description": "fast",
+        "peekOfCode": "drive_app = DriveToQdrantApp()\n@app.post(\"/sync\")\nasync def sync_drive_to_qdrant(request: SyncRequest):\n    \"\"\"\n    Sync Google Drive files to Qdrant collection for a specific user\n    Parameters:\n    - user_name: String to be used as the collection name (will be sanitized)\n    Returns:\n    - JSON with sync results including status, collection name, and statistics\n    \"\"\"",
+        "detail": "fast",
+        "documentation": {}
+    },
+    {
+        "label": "SuccessResponse",
+        "kind": 6,
+        "importPath": "endaws",
+        "description": "endaws",
+        "peekOfCode": "class SuccessResponse(BaseModel):\n    status: str = \"success\"\n    collection_name: str\n    new_files_added: int\n    total_time: str\n    message: str\nclass ErrorResponse(BaseModel):\n    status: str = \"error\"\n    error_code: str\n    message: str",
+        "detail": "endaws",
+        "documentation": {}
+    },
+    {
+        "label": "ErrorResponse",
+        "kind": 6,
+        "importPath": "endaws",
+        "description": "endaws",
+        "peekOfCode": "class ErrorResponse(BaseModel):\n    status: str = \"error\"\n    error_code: str\n    message: str\n    details: Dict[str, Any] = None\napp = FastAPI(\n    title=\"Drive to Qdrant API\",\n    description=\"API for syncing Google Drive files to Qdrant collections\",\n    version=\"1.0.0\"\n)",
+        "detail": "endaws",
+        "documentation": {}
+    },
+    {
+        "label": "DriveToQdrantApp",
+        "kind": 6,
+        "importPath": "endaws",
+        "description": "endaws",
+        "peekOfCode": "class DriveToQdrantApp:\n    def __init__(self):\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        self.operation_times = {}\n    def sanitize_collection_name(self, name: str) -> str:\n        \"\"\"Sanitize the collection name to meet Qdrant requirements\"\"\"\n        sanitized = re.sub(r'[^a-zA-Z0-9_]', '_', name.lower())",
+        "detail": "endaws",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "endaws",
+        "description": "endaws",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Load environment variables\nload_dotenv()\nSCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']\n# OAuth configuration\nCLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",",
+        "detail": "endaws",
+        "documentation": {}
+    },
+    {
+        "label": "SCOPES",
+        "kind": 5,
+        "importPath": "endaws",
+        "description": "endaws",
+        "peekOfCode": "SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']\n# OAuth configuration\nCLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n        \"token_uri\": \"https://oauth2.googleapis.com/token\",\n        \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n        \"client_secret\": os.getenv('GOOGLE_CLIENT_SECRET'),",
+        "detail": "endaws",
+        "documentation": {}
+    },
+    {
+        "label": "CLIENT_CONFIG",
+        "kind": 5,
+        "importPath": "endaws",
+        "description": "endaws",
+        "peekOfCode": "CLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n        \"token_uri\": \"https://oauth2.googleapis.com/token\",\n        \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n        \"client_secret\": os.getenv('GOOGLE_CLIENT_SECRET'),\n        \"redirect_uris\": [\"http://localhost:8080/\"]\n    }",
+        "detail": "endaws",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "endaws",
+        "description": "endaws",
+        "peekOfCode": "app = FastAPI(\n    title=\"Drive to Qdrant API\",\n    description=\"API for syncing Google Drive files to Qdrant collections\",\n    version=\"1.0.0\"\n)\nclass DriveToQdrantApp:\n    def __init__(self):\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')",
+        "detail": "endaws",
+        "documentation": {}
+    },
+    {
+        "label": "drive_app",
+        "kind": 5,
+        "importPath": "endaws",
+        "description": "endaws",
+        "peekOfCode": "drive_app = DriveToQdrantApp()\n@app.get(\"/sync/{username}\")\nasync def sync_drive_to_qdrant(\n    username: str = Path(..., min_length=1, max_length=64, regex=\"^[a-zA-Z0-9_-]+$\")\n):\n    \"\"\"\n    Sync Google Drive files to Qdrant collection for a specific user\n    Parameters:\n    - username: String to be used as the collection name (from URL path)\n    Returns:",
+        "detail": "endaws",
+        "documentation": {}
+    },
+    {
+        "label": "handler",
+        "kind": 5,
+        "importPath": "endaws",
+        "description": "endaws",
+        "peekOfCode": "handler = Mangum(app)",
+        "detail": "endaws",
         "documentation": {}
     }
 ]
