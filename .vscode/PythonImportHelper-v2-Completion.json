@@ -83,11 +83,11 @@
         "documentation": {}
     },
     {
-        "label": "build",
-        "importPath": "googleapiclient.discovery",
-        "description": "googleapiclient.discovery",
+        "label": "InstalledAppFlow",
+        "importPath": "google_auth_oauthlib.flow",
+        "description": "google_auth_oauthlib.flow",
         "isExtraImport": true,
-        "detail": "googleapiclient.discovery",
+        "detail": "google_auth_oauthlib.flow",
         "documentation": {}
     },
     {
@@ -112,6 +112,30 @@
         "description": "googleapiclient.discovery",
         "isExtraImport": true,
         "detail": "googleapiclient.discovery",
+        "documentation": {}
+    },
+    {
+        "label": "build",
+        "importPath": "googleapiclient.discovery",
+        "description": "googleapiclient.discovery",
+        "isExtraImport": true,
+        "detail": "googleapiclient.discovery",
+        "documentation": {}
+    },
+    {
+        "label": "build",
+        "importPath": "googleapiclient.discovery",
+        "description": "googleapiclient.discovery",
+        "isExtraImport": true,
+        "detail": "googleapiclient.discovery",
+        "documentation": {}
+    },
+    {
+        "label": "QdrantClient",
+        "importPath": "qdrant_client",
+        "description": "qdrant_client",
+        "isExtraImport": true,
+        "detail": "qdrant_client",
         "documentation": {}
     },
     {
@@ -248,6 +272,38 @@
         "description": "qdrant_client.http.models",
         "isExtraImport": true,
         "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "Distance",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "VectorParams",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "PointStruct",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "google.auth.transport.requests",
+        "description": "google.auth.transport.requests",
+        "isExtraImport": true,
+        "detail": "google.auth.transport.requests",
         "documentation": {}
     },
     {
@@ -341,6 +397,14 @@
         "documentation": {}
     },
     {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -351,6 +415,14 @@
     },
     {
         "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
         "importPath": "datetime",
         "description": "datetime",
         "isExtraImport": true,
@@ -465,22 +537,6 @@
         "documentation": {}
     },
     {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
         "label": "Dict",
         "importPath": "typing",
         "description": "typing",
@@ -530,6 +586,14 @@
         "documentation": {}
     },
     {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "logging",
         "kind": 6,
         "isExtraImport": true,
@@ -544,6 +608,15 @@
         "description": "mangum",
         "isExtraImport": true,
         "detail": "mangum",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
@@ -682,15 +755,6 @@
         "documentation": {}
     },
     {
-        "label": "SyncRequest",
-        "kind": 6,
-        "importPath": "fast",
-        "description": "fast",
-        "peekOfCode": "class SyncRequest(BaseModel):\n    user_name: str\nclass DriveToQdrantApp:\n    def __init__(self):\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        self.operation_times = {}\n    def sanitize_collection_name(self, name: str) -> str:",
-        "detail": "fast",
-        "documentation": {}
-    },
-    {
         "label": "DriveToQdrantApp",
         "kind": 6,
         "importPath": "fast",
@@ -722,7 +786,7 @@
         "kind": 5,
         "importPath": "fast",
         "description": "fast",
-        "peekOfCode": "app = FastAPI(title=\"Drive to Qdrant API\")\nclass SyncRequest(BaseModel):\n    user_name: str\nclass DriveToQdrantApp:\n    def __init__(self):\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        self.operation_times = {}",
+        "peekOfCode": "app = FastAPI(title=\"Drive to Qdrant API\")\nclass DriveToQdrantApp:\n    def __init__(self):\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        self.operation_times = {}\n    def sanitize_collection_name(self, name: str) -> str:\n        \"\"\"Sanitize the collection name to meet Qdrant requirements\"\"\"",
         "detail": "fast",
         "documentation": {}
     },
@@ -731,7 +795,7 @@
         "kind": 5,
         "importPath": "fast",
         "description": "fast",
-        "peekOfCode": "drive_app = DriveToQdrantApp()\n@app.post(\"/sync\")\nasync def sync_drive_to_qdrant(request: SyncRequest):\n    \"\"\"\n    Sync Google Drive files to Qdrant collection for a specific user\n    Parameters:\n    - user_name: String to be used as the collection name (will be sanitized)\n    Returns:\n    - JSON with sync results including status, collection name, and statistics\n    \"\"\"",
+        "peekOfCode": "drive_app = DriveToQdrantApp()\n@app.post(\"/sync/{collection_name}\")\nasync def sync_drive_to_qdrant(collection_name: str):\n    \"\"\"\n    Sync Google Drive files to Qdrant collection\n    Parameters:\n    - collection_name: String to be used as the collection name (will be sanitized)\n    Returns:\n    - JSON with sync results including status, collection name, and statistics\n    \"\"\"",
         "detail": "fast",
         "documentation": {}
     },
@@ -814,6 +878,51 @@
         "description": "endaws",
         "peekOfCode": "handler = Mangum(app)",
         "detail": "endaws",
+        "documentation": {}
+    },
+    {
+        "label": "DriveToQdrantApp",
+        "kind": 6,
+        "importPath": "lambda",
+        "description": "lambda",
+        "peekOfCode": "class DriveToQdrantApp:\n    def __init__(self):\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        self.operation_times = {}\n    def sanitize_collection_name(self, name: str) -> str:\n        \"\"\"Sanitize the collection name to meet Qdrant requirements.\"\"\"\n        sanitized = re.sub(r'[^a-zA-Z0-9_]', '_', name.lower())",
+        "detail": "lambda",
+        "documentation": {}
+    },
+    {
+        "label": "lambda_handler",
+        "kind": 2,
+        "importPath": "lambda",
+        "description": "lambda",
+        "peekOfCode": "def lambda_handler(event, context):\n    \"\"\"\n    AWS Lambda handler function.\n    \"\"\"\n    try:\n        # Handle path parameters (e.g., /sync/{username})\n        if 'pathParameters' in event and event['pathParameters'] is not None:\n            collection_name = event['pathParameters'].get('collection_name', 'default_collection')\n        # Handle query parameters (e.g., /sync?username=johndoe)\n        elif 'queryStringParameters' in event and event['queryStringParameters'] is not None:",
+        "detail": "lambda",
+        "documentation": {}
+    },
+    {
+        "label": "SCOPES",
+        "kind": 5,
+        "importPath": "lambda",
+        "description": "lambda",
+        "peekOfCode": "SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']\nload_dotenv()\n# OAuth configuration\nCLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n        \"token_uri\": \"https://oauth2.googleapis.com/token\",\n        \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",",
+        "detail": "lambda",
+        "documentation": {}
+    },
+    {
+        "label": "CLIENT_CONFIG",
+        "kind": 5,
+        "importPath": "lambda",
+        "description": "lambda",
+        "peekOfCode": "CLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n        \"token_uri\": \"https://oauth2.googleapis.com/token\",\n        \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n        \"client_secret\": os.getenv('GOOGLE_CLIENT_SECRET'),\n        \"redirect_uris\": [\"http://localhost:8080/\"]\n    }",
+        "detail": "lambda",
+        "documentation": {}
+    },
+    {
+        "label": "drive_app",
+        "kind": 5,
+        "importPath": "lambda",
+        "description": "lambda",
+        "peekOfCode": "drive_app = DriveToQdrantApp()\ndef lambda_handler(event, context):\n    \"\"\"\n    AWS Lambda handler function.\n    \"\"\"\n    try:\n        # Handle path parameters (e.g., /sync/{username})\n        if 'pathParameters' in event and event['pathParameters'] is not None:\n            collection_name = event['pathParameters'].get('collection_name', 'default_collection')\n        # Handle query parameters (e.g., /sync?username=johndoe)",
+        "detail": "lambda",
         "documentation": {}
     }
 ]

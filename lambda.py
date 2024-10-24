@@ -1,5 +1,6 @@
 import os
 import pickle
+import json
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from qdrant_client import QdrantClient
@@ -10,8 +11,6 @@ import uuid
 from dotenv import load_dotenv
 import time
 from datetime import timedelta
-from fastapi import FastAPI, HTTPException
-from typing import Dict, Any
 import re
 
 SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
@@ -30,8 +29,6 @@ CLIENT_CONFIG = {
     }
 }
 
-app = FastAPI(title="Drive to Qdrant API")
-
 class DriveToQdrantApp:
     def __init__(self):
         self.qdrant = QdrantClient(
@@ -41,10 +38,8 @@ class DriveToQdrantApp:
         self.operation_times = {}
 
     def sanitize_collection_name(self, name: str) -> str:
-        """Sanitize the collection name to meet Qdrant requirements"""
-        # Remove special characters and spaces, replace with underscore
+        """Sanitize the collection name to meet Qdrant requirements."""
         sanitized = re.sub(r'[^a-zA-Z0-9_]', '_', name.lower())
-        # Ensure it starts with a letter
         if not sanitized[0].isalpha():
             sanitized = 'c_' + sanitized
         return sanitized[:64]  # Limit length to 64 characters
@@ -79,7 +74,7 @@ class DriveToQdrantApp:
             existing_files = {point.payload["file_name"] for point in points}
             return existing_files
         except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Error fetching existing files: {str(e)}")
+            raise Exception(f"Error fetching existing files: {str(e)}")
         finally:
             self.end_timer("fetch_existing")
 
@@ -100,7 +95,7 @@ class DriveToQdrantApp:
             return True, set()
 
         except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Collection handling error: {str(e)}")
+            raise Exception(f"Collection handling error: {str(e)}")
         finally:
             self.end_timer("collection_handle")
 
@@ -126,7 +121,7 @@ class DriveToQdrantApp:
 
             return creds
         except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Authentication error: {str(e)}")
+            raise Exception(f"Authentication error: {str(e)}")
         finally:
             self.end_timer("auth")
 
@@ -143,7 +138,7 @@ class DriveToQdrantApp:
                 return []
             return items
         except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Error fetching drive files: {str(e)}")
+            raise Exception(f"Error fetching drive files: {str(e)}")
         finally:
             self.end_timer("drive_fetch")
 
@@ -176,11 +171,11 @@ class DriveToQdrantApp:
                 return True, new_files_count
             return True, 0
         except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Failed to sync to Qdrant: {str(e)}")
+            raise Exception(f"Failed to sync to Qdrant: {str(e)}")
         finally:
             self.end_timer("qdrant_insert")
 
-    async def run_sync(self, collection_name: str) -> Dict[str, Any]:
+    async def run_sync(self, collection_name: str) -> dict:
         self.start_timer("total")
         try:
             sanitized_collection_name = self.sanitize_collection_name(collection_name)
@@ -210,24 +205,38 @@ class DriveToQdrantApp:
             
         except Exception as e:
             self.end_timer('total')
-            raise HTTPException(status_code=500, detail=str(e))
+            raise Exception(str(e))
 
 # Initialize the DriveToQdrantApp instance
 drive_app = DriveToQdrantApp()
 
-@app.post("/sync/{collection_name}")
-async def sync_drive_to_qdrant(collection_name: str):
+def lambda_handler(event, context):
     """
-    Sync Google Drive files to Qdrant collection
-    
-    Parameters:
-    - collection_name: String to be used as the collection name (will be sanitized)
-    
-    Returns:
-    - JSON with sync results including status, collection name, and statistics
+    AWS Lambda handler function.
     """
-    return await drive_app.run_sync(collection_name)
+    try:
+        # Handle path parameters (e.g., /sync/{username})
+        if 'pathParameters' in event and event['pathParameters'] is not None:
+            collection_name = event['pathParameters'].get('collection_name', 'default_collection')
 
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+        # Handle query parameters (e.g., /sync?username=johndoe)
+        elif 'queryStringParameters' in event and event['queryStringParameters'] is not None:
+            collection_name = event['queryStringParameters'].get('username', 'default_collection')
+        
+        # Fallback if no collection_name or username is provided
+        else:
+            collection_name = 'default_collection'
+
+        # Run sync process
+        sync_result = drive_app.run_sync(collection_name)
+
+        return {
+            'statusCode': 200,
+            'body': json.dumps(sync_result)
+        }
+    
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': json.dumps({'error': str(e)})
+        }
