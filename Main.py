@@ -130,7 +130,7 @@ class DriveToQdrantApp:
             
             self.qdrant.create_collection(
                 collection_name=collection_name,
-                vectors_config=VectorParams(size=128, distance=Distance.COSINE)
+                vectors_config=VectorParams(size=1536, distance=Distance.COSINE)  # Changed from 128 to 1536
             )
             self.time_label.config(text=f"Collection created in {self.format_time_delta(self.end_timer('collection_handle'))}")
             return True, set()
@@ -189,7 +189,7 @@ class DriveToQdrantApp:
 
     def generate_vector(self, file_name):
         np.random.seed(hash(file_name) % (2**32))
-        return np.random.random(128).tolist()
+        return np.random.random(1536).tolist()  # Changed from 128 to 1536
 
     def insert_into_qdrant(self, files, collection_name, existing_files):
         self.start_timer("qdrant_insert")
