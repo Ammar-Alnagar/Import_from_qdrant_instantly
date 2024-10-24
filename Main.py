@@ -17,7 +17,7 @@ SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
 load_dotenv()
 # OAuth configuration (replace with actual values)
 CLIENT_CONFIG = {
-            "installed": {
+            "web": {
                 "client_id": os.getenv('GOOGLE_CLIENT_ID'),
                 "project_id": os.getenv('GOOGLE_PROJECT_ID'),
                 "auth_uri": "https://accounts.google.com/o/oauth2/auth",
@@ -31,7 +31,7 @@ CLIENT_CONFIG = {
 class DriveToQdrantApp:
     def __init__(self):
         self.window = tk.Tk()
-        self.window.title("Google Drive to Qdrant Sync")
+        self.window.title("Welcome to AI Brain")
         self.window.geometry("400x350")  # Made window slightly taller for time display
         
         # Initialize Qdrant client with API key
@@ -255,25 +255,20 @@ class DriveToQdrantApp:
                             f"- Total files: {len(existing_files) + new_files_count}"
                         )
                         self.status_label.config(text=f"Sync completed: {new_files_count} new files added")
-                        messagebox.showinfo("Success", status_msg)
+                        messagebox.showinfo("Success", "Imported Files into AI Brain successfully.")
                     else:
-                        status_msg = (
-                            f"Operation completed in {total_time}\n"
-                            "No new files to add\n"
-                            f"Collection already contains {len(existing_files)} files"
-                        )
-                        self.status_label.config(text="No new files to add")
-                        messagebox.showinfo("Success", status_msg)
-            else:
-                self.end_timer('total')
-                self.status_label.config(text="No files found in Drive")
+                        self.status_label.config(text="No new files to add.")
+                        messagebox.showinfo("Info", "No new files to add.")
+                else:
+                    self.status_label.config(text="Sync failed.")
         except Exception as e:
-            self.end_timer('total')
-            self.status_label.config(text="Error occurred")
-            messagebox.showerror("Error", f"An error occurred: {str(e)}")
-        finally:
+            self.status_label.config(text=f"Sync failed: {str(e)}")
+            print(f"Error syncing: {e}")
             self.cleanup_token()
 
-if __name__ == "__main__":
+    def run(self):
+        self.window.mainloop()
+
+if __name__ == '__main__':
     app = DriveToQdrantApp()
-    app.window.mainloop()
+    app.run()
