@@ -5,10 +5,12 @@ from qdrant_client import QdrantClient
 import tkinter as tk
 from tkinter import messagebox
 import time
-
-# Import GROQ SDK (assuming it has a similar function for generating embeddings)
-# Please adjust this import based on the GROQ library you're using.
-from groq_sdk import GroqEmbedding  # Hypothetical import
+import cohere  # Cohere SDK
+from dotenv import load_dotenv
+import os
+load_dotenv()
+# Initialize Cohere client (replace 'your-api-key' with your actual API key)
+co = cohere.Client(os.getenv('COHERE_API_KEY'))
 
 # Step 1: Connect to email via IMAP
 def get_emails(server, email_user, email_pass, label="INBOX", batch_size=10000):
@@ -37,10 +39,9 @@ def get_emails(server, email_user, email_pass, label="INBOX", batch_size=10000):
     except Exception as e:
         messagebox.showerror("Error", f"Failed to fetch emails: {str(e)}")
 
-# Step 2: Process and Vectorize emails using GROQ
+# Step 2: Process and Vectorize emails using Cohere
 def process_emails(emails):
     vectors = []
-    groq_model = GroqEmbedding()  # Hypothetical initialization of a GROQ model
     for msg in emails:
         subject = decode_header(msg["subject"])[0][0]
         if isinstance(subject, bytes):
@@ -48,8 +49,9 @@ def process_emails(emails):
         # Get email body
         body = get_email_body(msg)
         email_text = f"Subject: {subject}\nBody: {body}"
-        # Vectorize using GROQ (adjust this to fit the actual GROQ API)
-        embedding = groq_model.embed(email_text)  # Hypothetical method to generate embeddings
+        
+        # Vectorize using Cohere
+        embedding = co.embed(texts=[email_text]).embeddings[0]
         vectors.append(embedding)
     return vectors
 
@@ -84,10 +86,13 @@ EMAIL_SERVERS = {
 def start_processing(email_user, email_pass, selected_server):
     try:
         # Qdrant client setup
-        client = QdrantClient("http://localhost:6333")
+        client = QdrantClient(
+            url=os.getenv('QDRANT_URL'),
+            api_key=os.getenv('QDRANT_API_KEY')
+        )
 
         server = EMAIL_SERVERS[selected_server]  # Get the IMAP server based on user selection
-        batch_size = 10000  # Adjust based on your needs
+        batch_size = 20000  # Adjust based on your needs
 
         # Process the emails in batches
         for emails_batch in get_emails(server, email_user, email_pass, batch_size=batch_size):
