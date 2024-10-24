@@ -83,14 +83,6 @@
         "documentation": {}
     },
     {
-        "label": "InstalledAppFlow",
-        "importPath": "google_auth_oauthlib.flow",
-        "description": "google_auth_oauthlib.flow",
-        "isExtraImport": true,
-        "detail": "google_auth_oauthlib.flow",
-        "documentation": {}
-    },
-    {
         "label": "build",
         "importPath": "googleapiclient.discovery",
         "description": "googleapiclient.discovery",
@@ -296,14 +288,6 @@
         "description": "qdrant_client.http.models",
         "isExtraImport": true,
         "detail": "qdrant_client.http.models",
-        "documentation": {}
-    },
-    {
-        "label": "Request",
-        "importPath": "google.auth.transport.requests",
-        "description": "google.auth.transport.requests",
-        "isExtraImport": true,
-        "detail": "google.auth.transport.requests",
         "documentation": {}
     },
     {
@@ -397,14 +381,6 @@
         "documentation": {}
     },
     {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -415,14 +391,6 @@
     },
     {
         "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "timedelta",
         "importPath": "datetime",
         "description": "datetime",
         "isExtraImport": true,
@@ -617,6 +585,14 @@
         "importPath": "json",
         "description": "json",
         "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "service_account",
+        "importPath": "google.oauth2",
+        "description": "google.oauth2",
+        "isExtraImport": true,
+        "detail": "google.oauth2",
         "documentation": {}
     },
     {
@@ -881,11 +857,29 @@
         "documentation": {}
     },
     {
-        "label": "DriveToQdrantApp",
-        "kind": 6,
+        "label": "init_google_client",
+        "kind": 2,
         "importPath": "lambda",
         "description": "lambda",
-        "peekOfCode": "class DriveToQdrantApp:\n    def __init__(self):\n        self.qdrant = QdrantClient(\n            url=os.getenv('QDRANT_URL'),\n            api_key=os.getenv('QDRANT_API_KEY')\n        )\n        self.operation_times = {}\n    def sanitize_collection_name(self, name: str) -> str:\n        \"\"\"Sanitize the collection name to meet Qdrant requirements.\"\"\"\n        sanitized = re.sub(r'[^a-zA-Z0-9_]', '_', name.lower())",
+        "peekOfCode": "def init_google_client():\n    \"\"\"Initialize Google Drive client with service account\"\"\"\n    creds_dict = json.loads(os.environ['GOOGLE_CREDENTIALS'])\n    credentials = service_account.Credentials.from_service_account_info(\n        creds_dict,\n        scopes=['https://www.googleapis.com/auth/drive.metadata.readonly']\n    )\n    return build('drive', 'v3', credentials=credentials)\ndef init_qdrant_client():\n    \"\"\"Initialize Qdrant client\"\"\"",
+        "detail": "lambda",
+        "documentation": {}
+    },
+    {
+        "label": "init_qdrant_client",
+        "kind": 2,
+        "importPath": "lambda",
+        "description": "lambda",
+        "peekOfCode": "def init_qdrant_client():\n    \"\"\"Initialize Qdrant client\"\"\"\n    return QdrantClient(\n        url=os.environ['QDRANT_URL'],\n        api_key=os.environ['QDRANT_API_KEY']\n    )\ndef generate_vector(file_name):\n    \"\"\"Generate a deterministic vector based on filename\"\"\"\n    np.random.seed(hash(file_name) % (2**32))\n    return np.random.random(1536).tolist()",
+        "detail": "lambda",
+        "documentation": {}
+    },
+    {
+        "label": "generate_vector",
+        "kind": 2,
+        "importPath": "lambda",
+        "description": "lambda",
+        "peekOfCode": "def generate_vector(file_name):\n    \"\"\"Generate a deterministic vector based on filename\"\"\"\n    np.random.seed(hash(file_name) % (2**32))\n    return np.random.random(1536).tolist()\ndef lambda_handler(event, context):\n    try:\n        # Initialize clients\n        drive_service = init_google_client()\n        qdrant_client = init_qdrant_client()\n        # Get collection name from event",
         "detail": "lambda",
         "documentation": {}
     },
@@ -894,34 +888,7 @@
         "kind": 2,
         "importPath": "lambda",
         "description": "lambda",
-        "peekOfCode": "def lambda_handler(event, context):\n    \"\"\"\n    AWS Lambda handler function.\n    \"\"\"\n    try:\n        # Handle path parameters (e.g., /sync/{username})\n        if 'pathParameters' in event and event['pathParameters'] is not None:\n            collection_name = event['pathParameters'].get('collection_name', 'default_collection')\n        # Handle query parameters (e.g., /sync?username=johndoe)\n        elif 'queryStringParameters' in event and event['queryStringParameters'] is not None:",
-        "detail": "lambda",
-        "documentation": {}
-    },
-    {
-        "label": "SCOPES",
-        "kind": 5,
-        "importPath": "lambda",
-        "description": "lambda",
-        "peekOfCode": "SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']\nload_dotenv()\n# OAuth configuration\nCLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n        \"token_uri\": \"https://oauth2.googleapis.com/token\",\n        \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",",
-        "detail": "lambda",
-        "documentation": {}
-    },
-    {
-        "label": "CLIENT_CONFIG",
-        "kind": 5,
-        "importPath": "lambda",
-        "description": "lambda",
-        "peekOfCode": "CLIENT_CONFIG = {\n    \"web\": {\n        \"client_id\": os.getenv('GOOGLE_CLIENT_ID'),\n        \"project_id\": os.getenv('GOOGLE_PROJECT_ID'),\n        \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n        \"token_uri\": \"https://oauth2.googleapis.com/token\",\n        \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n        \"client_secret\": os.getenv('GOOGLE_CLIENT_SECRET'),\n        \"redirect_uris\": [\"http://localhost:8080/\"]\n    }",
-        "detail": "lambda",
-        "documentation": {}
-    },
-    {
-        "label": "drive_app",
-        "kind": 5,
-        "importPath": "lambda",
-        "description": "lambda",
-        "peekOfCode": "drive_app = DriveToQdrantApp()\ndef lambda_handler(event, context):\n    \"\"\"\n    AWS Lambda handler function.\n    \"\"\"\n    try:\n        # Handle path parameters (e.g., /sync/{username})\n        if 'pathParameters' in event and event['pathParameters'] is not None:\n            collection_name = event['pathParameters'].get('collection_name', 'default_collection')\n        # Handle query parameters (e.g., /sync?username=johndoe)",
+        "peekOfCode": "def lambda_handler(event, context):\n    try:\n        # Initialize clients\n        drive_service = init_google_client()\n        qdrant_client = init_qdrant_client()\n        # Get collection name from event\n        collection_name = (\n            event.get('pathParameters', {}).get('collection_name') or\n            event.get('queryStringParameters', {}).get('username') or\n            'default_collection'",
         "detail": "lambda",
         "documentation": {}
     }
